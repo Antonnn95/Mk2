@@ -4,6 +4,7 @@
     <button @click="play(getCurrentId)">Play</button>
     <!-- <button @click="play('CtkZxnkbjtI')">The Black Page #2 live band</button> -->
     <button @click="pause()">Pause</button>
+    <input @change="volume(inputRange)" type="range" min="0" max="100" v-model="inputRange">
     
   </div>
 </template>
@@ -13,7 +14,8 @@ export default {
   components:{
     data(){
       return {
-        Id: this.getCurrentId
+        Id: this.getCurrentId,
+        inputRange: 20
       }
     }
   },
@@ -26,6 +28,10 @@ export default {
     pause(){
       player.pauseVideo()
     }, 
+    volume(volume){
+      player.setVolume(volume),
+      player.getVolume()
+    }
   },
   computed:{
     getCurrentId(){

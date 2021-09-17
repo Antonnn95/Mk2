@@ -16,7 +16,8 @@ const store = createStore({
       //   }
       Result: [],
       currentVideoId: '',
-      currentArtist: []
+      currentArtist: [],
+      currentAlbum: []
    },
    mutations:{
       setResult(state, Result){
@@ -33,6 +34,10 @@ const store = createStore({
        setCurrentArtist(state, currentArtist){
           state.currentArtist = currentArtist
           console.log(currentArtist)
+       },
+       setCurrentAlbum(state, currentAlbum){
+          state.currentAlbum = currentAlbum
+          console.log(currentAlbum)
        }
        
    },
@@ -47,6 +52,9 @@ const store = createStore({
      },
      saveCurrentArtist( {commit}, currentBrowserId){
         commit('setCurrentArtist', currentBrowserId)
+     },
+     saveCurrentAlbum( {commit}, currentAlbum){
+        commit('setCurrentAlbum', currentAlbum)
      }
    }
 })

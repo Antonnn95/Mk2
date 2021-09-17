@@ -16,7 +16,10 @@
                     <router-link to="/player" @click="saveMusic(songs.videoId)">{{songs.name}}</router-link>
                 </div>
                 <div v-if="songs.type === 'artist'">
-                    <router-link to="/artistDetails">{{songs.name}}</router-link>
+                    <router-link to="/artistDetails" @click="saveArtist(songs)">{{songs.name}}</router-link>
+                </div>
+                <div v-if="songs.type === 'album'">
+                    <router-link to="/albumDetails" @click="saveAlbum(songs)">{{songs.name}}</router-link>
                 </div>
             </div>
         </div>
@@ -59,6 +62,12 @@ export default{
         },
         pause(){
          player.pauseVideo()
+        },
+        saveArtist(artist){
+            this.$store.dispatch('saveCurrentArtist', artist)
+        },
+        saveAlbum(album){
+            this.$store.dispatch('saveCurrentAlbum', album)
         }
     }
 }
