@@ -13,13 +13,13 @@
             <h2>Search Result</h2>
             <div id="resultLoop" v-for="(songs, videoId) in getMusic" :key="videoId">
                 <div v-if="songs.type === 'song'">
-                    <h4 @click="saveMusic(songs)">{{songs.name}} -- {{songs.artist.name}}</h4>
+                    <a @click="saveMusic(songs)" href="#">{{songs.name}} -- {{songs.artist.name}}</a>
                 </div>
                 <div v-if="songs.type === 'artist'">
-                    <h4 @click="saveArtist(songs.browseId)">{{songs.name}}</h4>
+                    <a @click="saveArtist(songs.browseId)" href="#">{{songs.name}}</a>
                 </div>
                 <div v-if="songs.type === 'album'">
-                    <h4 @click="saveAlbum(songs)">{{songs.name}}</h4>
+                    <a @click="saveAlbum(songs)" href="#">{{songs.name}}</a>
                 </div>
             </div>
         </div>

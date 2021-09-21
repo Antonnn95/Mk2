@@ -47,6 +47,7 @@ const store = createStore({
        },
        setCurrent(state, currentVideoId){
          state.song = currentVideoId
+         state.currentVideoId = currentVideoId
          console.log(currentVideoId)
       },
        

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <h2>{{getComputedSong.name}}</h2>
-    <h3>{{getComputedSong.artist.name}}</h3> -->
+    <!-- <h2>{{getComputedSong.name}}</h2> -->
+    <!-- <h3>{{getComputedSong.artist.name}}</h3> -->
     <!-- <h3>{{getComputedSong.album.name}}</h3> -->
     <button @click="backward()">Backward</button>
     <button @click="play()">Play</button>
@@ -87,9 +87,9 @@ export default {
       alert(`http://localhost:3000/player/${Id}`)
       
     },
-    getCurrentId(vidId){
-      this.$store.dispatch('getCurrentSong', vidId)
+    async getCurrentId(vidId){
       console.log(vidId)
+      await this.$store.dispatch('getCurrentSong', vidId)
     },
     
   },
@@ -98,7 +98,11 @@ export default {
       return this.$store.state.Result
     },
     getComputedSong(){
-      return this.$store.state.song.content
+      // console.log(this.$store.state.song.content.length)
+      // if (this.$store.state.song.content.length != 0){
+      //   return this.$store.state.song.content  
+      // }
+      return this.$store.state.currentVideoId
     },
     
   },
