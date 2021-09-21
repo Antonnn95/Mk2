@@ -1,16 +1,16 @@
 <template>
     <body>
-        <input type="text" v-model="searchObj.searchString" placeholder="Search..." name="textBox">
-        <select v-model="searchObj.searchOption" name="searchOption">
+        <input id="text" type="text" v-model="searchObj.searchString" placeholder="Search..." name="textBox">
+        <select id="option" v-model="searchObj.searchOption" name="searchOption">
             <option :value="'search'">All</option>
             <option :value="'songs'">Song</option>
             <option :value="'artists'">Artist</option>
             <option :value="'albums'">Album</option>
         </select>
         <button @click="searchMusic(searchObj)">Search</button>
-        <div>
+        <div id="result">
             <!-- <div v-if="searchOption.value === 'artists'"></div> -->
-            <h2>Search Result</h2>
+            <h2 id="resultH2">Search Result</h2>
             <div id="resultLoop" v-for="(songs, videoId) in getMusic" :key="videoId">
                 <div v-if="songs.type === 'song'">
                     <a @click="saveMusic(songs)" href="#">{{songs.name}} -- {{songs.artist.name}}</a>

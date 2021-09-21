@@ -1,0 +1,34 @@
+body{
+    background-color: cadetblue;
+}
+
+#app{
+    background-color: cadetblue;
+    align-items: center;
+}
+
+#Home{
+    text-decoration: none;
+    color: black;
+    margin-left: 10vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}
+#text{
+    background-color:lightblue;
+    color: black;
+}
+#option{
+    background-color: lightblue;
+}
+#Search>body{
+    background-color: lightcoral;
+    align-content: flex-end;
+}
+#resultLoop>div>a{
+    text-decoration: none;
+    color: black;
+}
+#resultH2{
+    color: black;
+}
