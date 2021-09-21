@@ -14,7 +14,16 @@
 
 <script>
 export default {
-    
+    created(){
+    this.getCurrentId(this.browseId)
+  },
+  data(){
+    return {
+        browseId: this.$route.params.browseId,
+
+      }
+  },
+  
 
     computed:{
     getArtistId(){
@@ -27,7 +36,11 @@ export default {
       console.log(Id)
       alert(`http://localhost:3000/artistDetails/${Id}`)
       return `http://localhost:3000/artistDetails/${Id}`
-    }
+    },
+    getCurrentId(browseId){
+      console.log(browseId)
+      this.$store.dispatch('getByBrowse', browseId)
+    },
   }
 }
 

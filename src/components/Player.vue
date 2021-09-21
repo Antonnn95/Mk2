@@ -33,6 +33,7 @@ export default {
   methods:{
     play(){
       // calling global variable
+      console.log(this.vidId)
       window.player.loadVideoById(this.vidId)
       window.player.playVideo()
     },
@@ -45,27 +46,35 @@ export default {
     },
     forward(){
       let result = this.$store.state.Result.content
-      let currentSong = this.$store.state.currentVideoId
+      console.log(result)
+      let currentSong = this.vidId
       console.log(currentSong)
+      
       for (let i = 0; i < result.length; ++i){
-        if (result[i].videoId === currentSong.videoId && i < result.length){
-          this.setNewCurrent(result[i+1])
-          console.log(result[i+1].videoId)
-          this.play(result[i+1].videoId)
+        if (result[i].videoId === currentSong && i < result.length){
+          this.getCurrentId(result[i+1].videoId)
+          this.vidId = result[i+1].videoId
+          console.log(this.vidId)
           this.$router.push(`/player/${result[i+1].videoId}`)
+          
+          this.play()
         }
       }
     },
     backward(){
       let result = this.$store.state.Result.content
-      let currentSong = this.$store.state.currentVideoId
+      console.log(result)
+      let currentSong = this.vidId
       console.log(currentSong)
+      
       for (let i = 0; i < result.length; ++i){
-        if (result[i].videoId === currentSong.videoId && i > 0){
-          this.setNewCurrent(result[i-1])
-          console.log(result[i-1].videoId)
-          this.play(result[i-1].videoId)
+        if (result[i].videoId === currentSong && i > 0){
+          this.getCurrentId(result[i-1].videoId)
+          this.vidId = result[i-1].videoId
+          console.log(this.vidId)
           this.$router.push(`/player/${result[i-1].videoId}`)
+          
+          this.play()
         }
       }
     },
@@ -73,14 +82,14 @@ export default {
       this.$store.dispatch('saveCurrentSong', nextSong)
     },
     shareSong(){
-      let Id = this.getComputedSong
+      let Id = this.vidId
       console.log(Id)
       alert(`http://localhost:3000/player/${Id}`)
       
     },
     getCurrentId(vidId){
-      console.log(vidId)
       this.$store.dispatch('getCurrentSong', vidId)
+      console.log(vidId)
     },
     
   },
@@ -89,7 +98,7 @@ export default {
       return this.$store.state.Result
     },
     getComputedSong(){
-      return this.$store.state.currentVideoId
+      return this.$store.state.song.content
     },
     
   },
