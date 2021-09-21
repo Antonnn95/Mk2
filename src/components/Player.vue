@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>{{getComputedSong.name}}</h2>
-    <h3>{{getComputedSong.artist.name}}</h3>
+    <!-- <h2>{{getComputedSong.name}}</h2>
+    <h3>{{getComputedSong.artist.name}}</h3> -->
     <!-- <h3>{{getComputedSong.album.name}}</h3> -->
     <button @click="backward()">Backward</button>
     <button @click="play()">Play</button>
@@ -20,14 +20,15 @@ export default {
   created(){
     this.getCurrentId(this.vidId)
   },
-  components:{
-    data(){
+  data(){
       return {
         vidId: this.$route.params.videoId,
         inputRange: 20,
 
       }
-    }
+    },
+  components:{
+    
   },
   methods:{
     play(){
