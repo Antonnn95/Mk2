@@ -17,7 +17,7 @@ const routes = [
         component: Search,
     },
     {
-        path: '/player',
+        path: '/player/:videoId',
         name: 'Player',
         component: Player,
     },
@@ -27,12 +27,12 @@ const routes = [
         component: SongDetails,
     },
     {
-        path: '/artistDetails',
+        path: '/artistDetails/:browseId',
         name: 'ArtistDetails',
         component: ArtistDetails,
     },
     {
-        path: '/albumDetails',
+        path: '/albumDetails/:browseId',
         name: 'AlbumDetails',
         component: AlbumDetails,
     },

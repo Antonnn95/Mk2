@@ -15,9 +15,11 @@ const store = createStore({
       //      }
       //   }
       Result: [],
-      currentVideoId: '',
+      currentVideoId: [],
       currentArtist: [],
-      currentAlbum: []
+      currentAlbum: [],
+      browseId: '',
+      song: []
    },
    mutations:{
       setResult(state, Result){
@@ -38,7 +40,16 @@ const store = createStore({
        setCurrentAlbum(state, currentAlbum){
           state.currentAlbum = currentAlbum
           console.log(currentAlbum)
-       }
+       },
+       setBrowseId(state, browseId){
+          state.browseId = browseId
+          console.log(browseId)
+       },
+       setCurrent(state, currentVideoId){
+         state.song = currentVideoId
+         console.log(currentVideoId)
+      },
+       
        
    },
    actions:{
@@ -50,11 +61,24 @@ const store = createStore({
      saveCurrentSong( {commit}, currentVideoId){
         commit('setCurrentSong', currentVideoId)
      },
-     saveCurrentArtist( {commit}, currentBrowserId){
-        commit('setCurrentArtist', currentBrowserId)
-     },
+   //   saveCurrentArtist( {commit}, currentBrowserId){
+   //      commit('setCurrentArtist', currentBrowserId)
+   //   },
      saveCurrentAlbum( {commit}, currentAlbum){
         commit('setCurrentAlbum', currentAlbum)
+     },
+     async getByBrowse( {commit}, browseId){
+        let result = await fetch(`https://yt-music-api.herokuapp.com/api/yt/artist/${browseId}`)
+        let data = await result.json()
+        commit('setCurrentArtist', data)
+     },
+     saveBrowseId( {commit}, browseId){
+        commit('setBrowseId', browseId)
+     },
+     async getCurrentSong( {commit}, vidId){
+        let result = await fetch(`https://yt-music-api.herokuapp.com/api/yt/songs/${vidId}`)
+        let data = await result.json()
+        commit('setCurrent', data)
      }
    }
 })

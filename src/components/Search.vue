@@ -13,13 +13,13 @@
             <h2>Search Result</h2>
             <div id="resultLoop" v-for="(songs, videoId) in getMusic" :key="videoId">
                 <div v-if="songs.type === 'song'">
-                    <router-link to="/player" @click="saveMusic(songs.videoId)">{{songs.name}}</router-link>
+                    <h4 @click="saveMusic(songs)">{{songs.name}} -- {{songs.artist.name}}</h4>
                 </div>
                 <div v-if="songs.type === 'artist'">
-                    <router-link to="/artistDetails" @click="saveArtist(songs)">{{songs.name}}</router-link>
+                    <h4 @click="saveArtist(songs.browseId)">{{songs.name}}</h4>
                 </div>
                 <div v-if="songs.type === 'album'">
-                    <router-link to="/albumDetails" @click="saveAlbum(songs)">{{songs.name}}</router-link>
+                    <h4 @click="saveAlbum(songs)">{{songs.name}}</h4>
                 </div>
             </div>
         </div>
@@ -37,7 +37,8 @@ export default{
         return {
             searchObj:{
                 searchString: '',
-                searchOption:'search'
+                searchOption:'search',
+                // id:''
             }
             
             
@@ -54,20 +55,19 @@ export default{
         },
         saveMusic(currentVideoId){
             this.$store.dispatch('saveCurrentSong', currentVideoId)
-        },
-        play(id){
-        // calling global variable
-         window.player.loadVideoById(id)
-         window.player.playVideo()
-        },
-        pause(){
-         player.pauseVideo()
+            this.$router.push(`/player/${currentVideoId.videoId}`)
         },
         saveArtist(artist){
-            this.$store.dispatch('saveCurrentArtist', artist)
+            this.$store.dispatch('saveBrowseId', artist)
+            this.$store.dispatch('getByBrowse', artist)
+            this.$router.push(`/artistDetails/${artist}`)
         },
         saveAlbum(album){
             this.$store.dispatch('saveCurrentAlbum', album)
+            this.$router.push(`/albumDetails/${album.browseId}`)
+        },
+        goToArtist(browseId){
+            this.$router.push(`/artistDetails/${browseId}`)
         }
     }
 }
