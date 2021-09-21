@@ -32,10 +32,9 @@ export default {
   },
   methods:{
     shareArtist(){
-      let Id = this.$store.state.browseId
+      let Id = this.browseId
       console.log(Id)
       alert(`http://localhost:3000/artistDetails/${Id}`)
-      return `http://localhost:3000/artistDetails/${Id}`
     },
     getCurrentId(browseId){
       console.log(browseId)
