@@ -31,7 +31,7 @@ body{
 }
 #option{
     background-color: lightblue;
-    height: 3vh;
+    
 }
 Button{
     background-color: lightgrey;
@@ -46,6 +46,15 @@ Button{
     text-decoration: none;
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    display: flex;
+    background-color: lightblue;
+    border-radius: 3px;
+    padding: 0.5vh;
+    margin-bottom: 4px;
+    width: auto;
+    
+    
 }
 #resultH2{
     color: black;
@@ -87,4 +96,18 @@ Button{
 }
 #albums{
     margin-left: 5vw;
+}
+#songs>div{
+    background-color: lightblue;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+#albums>div{
+    background-color: lightblue;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+#artistName>a{
+    text-decoration: none;
+    color: black;
 }

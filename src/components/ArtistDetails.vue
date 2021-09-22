@@ -1,7 +1,7 @@
 <template>
     <body>
         <div id="artistDetails">
-            <h1 id="artistName">{{getArtistId.name}}</h1>
+            <h1 id="artistName" ><a @click="shareArtist()" href="#">{{getArtistId.name}}</a></h1>
             <p id="description">{{getArtistId.description}}</p>
             <p>{{getArtistId.browseId}}</p>
             <div id="songsUntAlbums">
@@ -14,7 +14,7 @@
                 <div v-for="album in getArtistId.products.albums.content" :key="album.name">{{album.name}},</div>
               </div>
             </div>
-            <button @click="shareArtist()">Share</button>
+            <!-- <button @click="shareArtist()">Share</button> -->
             
         </div>
     </body>

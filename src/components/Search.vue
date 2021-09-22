@@ -8,19 +8,19 @@
                 <option :value="'artists'">Artist</option>
                 <option :value="'albums'">Album</option>
             </select>
+            <button @click="searchMusic(searchObj)" id="searchButton">Search</button>
         </div>
-        <button @click="searchMusic(searchObj)" id="searchButton">Search</button>
         <div id="result">
             <!-- <div v-if="searchOption.value === 'artists'"></div> -->
             <h2 id="resultH2">Search Result</h2>
             <div id="resultLoop" v-for="(songs, videoId) in getMusic" :key="videoId">
-                <div v-if="songs.type === 'song'">
+                <div v-if="songs.type === 'song'" id="song">
                     <a @click="saveMusic(songs)" href="#">{{songs.name}} -- {{songs.artist.name}}</a>
                 </div>
-                <div v-if="songs.type === 'artist'">
+                <div v-if="songs.type === 'artist'" id="artist">
                     <a @click="saveArtist(songs.browseId)" href="#">{{songs.name}}</a>
                 </div>
-                <div v-if="songs.type === 'album'">
+                <div v-if="songs.type === 'album'" album>
                     <a @click="saveAlbum(songs)" href="#">{{songs.name}}</a>
                 </div>
             </div>
