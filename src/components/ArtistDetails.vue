@@ -1,12 +1,20 @@
 <template>
     <body>
-        <div>
-            <h1>{{getArtistId.name}}</h1>
-            <p>{{getArtistId.description}}</p>
+        <div id="artistDetails">
+            <h1 id="artistName">{{getArtistId.name}}</h1>
+            <p id="description">{{getArtistId.description}}</p>
             <p>{{getArtistId.browseId}}</p>
-            <div v-for="song in getArtistId.products.songs.content" :key="song.name">{{song.name}}</div>
-            <div v-for="album in getArtistId.products.albums.content" :key="album.name">{{album.name}}</div>
-            <button @click="shareArtist()">Dela</button>
+            <div id="songsUntAlbums">
+              <div id="songs">
+                <h3>Songs:</h3>
+                <div v-for="song in getArtistId.products.songs.content" :key="song.name">{{song.name}},</div>
+              </div>
+              <div id="albums">
+                <h3>Albums:</h3>
+                <div v-for="album in getArtistId.products.albums.content" :key="album.name">{{album.name}},</div>
+              </div>
+            </div>
+            <button @click="shareArtist()">Share</button>
             
         </div>
     </body>

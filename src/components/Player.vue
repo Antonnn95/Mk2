@@ -5,15 +5,16 @@
     <!-- <h3>{{getComputedSong.artist.name}}</h3> -->
     <!-- <h3>{{getComputedSong.album.name}}</h3> -->
     <div id="playFunctions">
-      <button @click="backward()" id="previousButton">Backward</button>
-      <button @click="play()" id="playButton">Play</button>
       
-      <button @click="pause()" id="pauseButton">Pause</button>
-      <button @click="forward()" id="skipButton">Forward</button>
+      <button @click="backward()" id="previousButton"><i class="fa fa-step-backward"></i></button>
+      <button @click="play()" id="playButton"><i class="fa fa-play"></i></button>
+      
+      <button @click="pause()" id="pauseButton"><i class="fa fa-pause"></i></button>
+      <button @click="forward()" id="skipButton"><i class="fa fa-step-forward"></i></button>
     </div>
     <div id="volumeShare">
       <input @change="volume(inputRange)" type="range" min="0" max="100" v-model="inputRange" id="volumeControl">
-      <button @click="shareSong()" id="shareSong">Dela</button>
+      <button @click="shareSong()" id="shareSong">Share</button>
     </div>
     
   </div>

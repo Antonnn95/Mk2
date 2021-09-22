@@ -37,6 +37,7 @@ Button{
     background-color: lightgrey;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 1vh;
+    border-radius: 4px;
 }
 #searchBody{
     flex-direction: column;
@@ -59,6 +60,12 @@ Button{
 #volumeShare{
     margin-top: 10vh;
 }
+#playButton{
+    margin-left: 4vw;
+}
+#pauseButton{
+    margin-right: 4vw;
+}
 #logga{
     margin-top: 5vh;
     height: 35vh;
@@ -68,4 +75,16 @@ Button{
     margin-top: 6vh;
     height: 55vh;
     width: 45vh;
+}
+
+#artistDetails{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+#songsUntAlbums{
+    display: flex;
+    justify-content: center;
+}
+#albums{
+    margin-left: 5vw;
 }
