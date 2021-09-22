@@ -1,13 +1,15 @@
 <template>
-    <body>
-        <input id="text" type="text" v-model="searchObj.searchString" placeholder="Search..." name="textBox">
-        <select id="option" v-model="searchObj.searchOption" name="searchOption">
-            <option :value="'search'">All</option>
-            <option :value="'songs'">Song</option>
-            <option :value="'artists'">Artist</option>
-            <option :value="'albums'">Album</option>
-        </select>
-        <button @click="searchMusic(searchObj)">Search</button>
+    <body id="searchBody">
+        <div>
+            <input id="text" type="text" v-model="searchObj.searchString" placeholder="Search..." name="textBox">
+            <select id="option" v-model="searchObj.searchOption" name="searchOption">
+                <option :value="'search'">All</option>
+                <option :value="'songs'">Song</option>
+                <option :value="'artists'">Artist</option>
+                <option :value="'albums'">Album</option>
+            </select>
+        </div>
+        <button @click="searchMusic(searchObj)" id="searchButton">Search</button>
         <div id="result">
             <!-- <div v-if="searchOption.value === 'artists'"></div> -->
             <h2 id="resultH2">Search Result</h2>

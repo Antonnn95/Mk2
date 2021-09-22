@@ -1,5 +1,9 @@
 body{
     background-color: cadetblue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
 }
 
 #app{
@@ -8,6 +12,13 @@ body{
 }
 
 #Home{
+    text-decoration: none;
+    color: black;
+    margin-left: 2vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}
+#searchLink{
     text-decoration: none;
     color: black;
     margin-left: 10vw;
@@ -20,15 +31,41 @@ body{
 }
 #option{
     background-color: lightblue;
+    height: 3vh;
 }
-#Search>body{
-    background-color: lightcoral;
-    align-content: flex-end;
+Button{
+    background-color: lightgrey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1vh;
+}
+#searchBody{
+    flex-direction: column;
 }
 #resultLoop>div>a{
     text-decoration: none;
     color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #resultH2{
     color: black;
+}
+#player{
+    display: flex;
+    flex-direction: column;
+}
+#playFunctions{
+    margin-top: 5vh;
+}
+#volumeShare{
+    margin-top: 10vh;
+}
+#logga{
+    margin-top: 5vh;
+    height: 35vh;
+    width: 35vh;
+}
+#logoHome{
+    margin-top: 6vh;
+    height: 55vh;
+    width: 45vh;
 }

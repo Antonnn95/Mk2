@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div id="player">
+    <img src="/antonsLjudio.png" id="logga">
     <!-- <h2>{{getComputedSong.name}}</h2> -->
     <!-- <h3>{{getComputedSong.artist.name}}</h3> -->
     <!-- <h3>{{getComputedSong.album.name}}</h3> -->
-    <button @click="backward()">Backward</button>
-    <button @click="play()">Play</button>
-    <!-- <button @click="play('CtkZxnkbjtI')">The Black Page #2 live band</button> -->
-    <button @click="pause()">Pause</button>
-    <button @click="forward()">Forward</button>
-    <input @change="volume(inputRange)" type="range" min="0" max="100" v-model="inputRange">
-    <button @click="shareSong()">Dela</button>
+    <div id="playFunctions">
+      <button @click="backward()" id="previousButton">Backward</button>
+      <button @click="play()" id="playButton">Play</button>
+      
+      <button @click="pause()" id="pauseButton">Pause</button>
+      <button @click="forward()" id="skipButton">Forward</button>
+    </div>
+    <div id="volumeShare">
+      <input @change="volume(inputRange)" type="range" min="0" max="100" v-model="inputRange" id="volumeControl">
+      <button @click="shareSong()" id="shareSong">Dela</button>
+    </div>
     
   </div>
 </template>
@@ -58,6 +63,7 @@ export default {
           this.$router.push(`/player/${result[i+1].videoId}`)
           
           this.play()
+          break
         }
       }
     },
@@ -75,6 +81,7 @@ export default {
           this.$router.push(`/player/${result[i-1].videoId}`)
           
           this.play()
+          break
         }
       }
     },
