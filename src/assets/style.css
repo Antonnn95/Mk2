@@ -28,6 +28,8 @@ body{
 #text{
     background-color:lightblue;
     color: black;
+    width: 30vw;
+    
 }
 #option{
     background-color: lightblue;
@@ -41,6 +43,7 @@ Button{
 }
 #searchBody{
     flex-direction: column;
+    
 }
 #resultLoop>div>a{
     text-decoration: none;
@@ -52,7 +55,7 @@ Button{
     border-radius: 3px;
     padding: 0.5vh;
     margin-bottom: 4px;
-    width: auto;
+    
     
     
 }
