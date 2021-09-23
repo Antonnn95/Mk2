@@ -65,6 +65,7 @@ Button{
 }
 #playFunctions{
     margin-top: 5vh;
+    
 }
 #volumeShare{
     margin-top: 10vh;
@@ -90,6 +91,9 @@ Button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
+#artistDetails>p{
+    background-color: lightblue;
+}
 #songsUntAlbums{
     display: flex;
     justify-content: center;
@@ -111,3 +115,4 @@ Button{
     text-decoration: none;
     color: black;
 }
+

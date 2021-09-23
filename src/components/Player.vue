@@ -110,7 +110,7 @@ export default {
       // if (this.$store.state.song.content.length != 0){
       //   return this.$store.state.song.content  
       // }
-      return this.$store.state.currentVideoId
+      return this.$store.state.currentVideoId.content
     },
     
   },
