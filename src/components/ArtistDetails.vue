@@ -4,7 +4,7 @@
             <h1 id="artistName" ><a @click="shareArtist()" href="#">{{getArtistId.name}}</a></h1>
             <p id="description">{{getArtistId.description}}</p>
             <p>{{getArtistId.browseId}}</p>
-            <div id="songsUntAlbums">
+            <div id="songsUntAlbums" v-if="getArtistId.products">
               <div id="songs">
                 <h3>Songs:</h3>
                 <div v-for="song in getArtistId.products.songs.content" :key="song.name">{{song.name}},</div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    created(){
+    mounted(){
     this.getCurrentId(this.browseId)
   },
   data(){

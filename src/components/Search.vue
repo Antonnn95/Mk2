@@ -31,6 +31,7 @@
 
 <script>
 import Player from "/src/components/Player.vue"
+
 export default{
     components:{
         Player
